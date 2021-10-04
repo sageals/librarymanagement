@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-app-image
+spec:
+  selector:
+      matchLabels:
+        app: book-app-image
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: book-app-image
+    spec:
+      containers:
+        - name: springboot-book-mongodbs
+          image: sageal/springboot-book-mongodb:1.4
+          ports:
+          - containerPort: 8080
